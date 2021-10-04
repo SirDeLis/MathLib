@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+// присутствую неиспользованные библиотеки, возможно удалить
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace MathLib
 {
@@ -61,29 +63,29 @@ namespace MathLib
             return arr;
         }
         public static double[] ArrFind(double[] arr, bool dir)
-        {
-            double finded = arr[0];
-            int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+        { 
+            double finded = arr[0]; // количество найденных числе может быть больше одного
+            int findedIndex = 0; // количество найденных индексов может быть больше одного
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
                     if (finded < arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i]; // требуется проверка на повторение максимального числа и сохранение его индекса в массив
                         findedIndex = i;
                     }
                 }
                 else
                 {
-                    if (finded > arr[i])
+                    if (finded > arr[i]) // недоработка аналогичная той, что указана в случае с поиском максимального
                     {
                         finded = arr[i];
                         findedIndex = i;
                     }
                 }
             }
-            double[] result = { finded, findedIndex };
+            double[] result = { finded, findedIndex }; // структура результата должна быть более сложной
             return result;
         }
         public static double ArrDet(double[,] arr)
