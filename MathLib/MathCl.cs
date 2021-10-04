@@ -62,15 +62,15 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
-            int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+            double finded = arr[0]; 
+            int findedIndex = 0; 
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
                     if (finded < arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i]; 
                         findedIndex = i;
                     }
                 }
@@ -78,7 +78,7 @@ namespace MathLib
                 {
                     if (finded > arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i]; 
                         findedIndex = i;
                     }
                 }
@@ -112,18 +112,18 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); //при индексе матрицы больше 4, или не одинаковый индекс, он будет возращать результат 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) //при одинаковом индексе двух матриц, пройдет дальше, а при разных индексах матриц, выдадит только первую матрицу без объединения
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
                     for(int y = 0; y < arr1.GetLength(1); y++)
                     {
-                        arr1[i, y] += arr2[i, y];
+                        arr1[i, y] += arr2[i, y]; 
                     }
                 }
             }
@@ -132,7 +132,7 @@ namespace MathLib
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
             double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(1)) //при одинаковом индексе двух матриц, пройдет дальше, а при разных индексах матриц, выдадит только первую матрицу без объединения
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
                 for (int i = 0; i < arr.GetLength(0); i++)
