@@ -88,7 +88,11 @@ namespace MathLib
         }
         public static double ArrDet(double[,] arr)
         {
-            double det;
+            // Поскольку метод не обрабатывает все случаи (не вычисляет определитель матрицы, чей порядок больше 4), стоит создать исключение при привышении порядка матрицы.
+            // Стоит сделать исключение, если пользователь передал не квадратный массив. Возвращение нуля может ввести в заблуждение.
+            // Стоит сделать метод универсальным, так как он не обрабатывает матрицы всех порядков.
+        
+            double det; 
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
                 det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
@@ -112,7 +116,7 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); // избыточный код, можно просто вернуть 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
@@ -123,23 +127,24 @@ namespace MathLib
                 {
                     for(int y = 0; y < arr1.GetLength(1); y++)
                     {
-                        arr1[i, y] += arr2[i, y];
+                        arr1[i, y] += arr2[i, y]; // поскольку массивы передается по ссылке, то нежелательно изменять массив, который передается в качестве параметра
                     }
                 }
             }
-            return (arr1);
+            return (arr1); // нужно возвращать новый массив
+            // если массивы не равны по размерности, то нужно создать исключение
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            double[,] arr = { { 0 },{ 0 } }; // лишний код, лучше просто объявить, но не инициализировать, так как используется лишняя память
+            if (arr1.GetLength(0) == arr2.GetLength(1)) // если количество столбцов в первой матрице не равно количеству строк во второй то нужно создать исключение
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
-                        arr[i, y] = 0;
+                        arr[i, y] = 0; // лишний код
                         for (int k = 0; k < arr1.GetLength(1); k++)
                         {
 
@@ -148,7 +153,7 @@ namespace MathLib
                     }
                 }
             }
-            return arr;
+            return arr; // нельзя возвращать подобный массив, он может ввести в заблуждение
         }
 
     }
