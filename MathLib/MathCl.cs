@@ -62,15 +62,15 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
-            int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+            double finded = arr[0];//количество найдены чисел не может быть больше одного
+            int findedIndex = 0;//количество найдены индексов не может быть больше одного
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
                     if (finded < arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i];//требуется повторная проверка на повторение максимального числа и сохранение его в массив
                         findedIndex = i;
                     }
                 }
@@ -78,12 +78,12 @@ namespace MathLib
                 {
                     if (finded > arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i];//требуется повторная проверка на повторение минимального числа и сохранение его в массив
                         findedIndex = i;
                     }
                 }
             }
-            double[] result = { finded, findedIndex };
+            double[] result = { finded, findedIndex };//структура результата должна быть более сложной
             return result;
         }
         public static double ArrDet(double[,] arr)
