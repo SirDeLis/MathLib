@@ -13,12 +13,15 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             Tests t = new Tests();
-            //t.ArrSortTest();
-            //t.ArrDetTest();
-            //t.ArrFindTest();
-            //t.MatrixSumTest();
-            //t.MatrixMulTest();
-          
+            t.ArrSortTest();
+            t.ArrDetTest();
+            t.ArrFindTest();
+            t.MatrixSumTest();
+            t.MatrixMulTest();
+            t.SumTest();
+            t.MulTest();
+            t.AverageTest();
+            t.GeomAverageTest();
         }
 
     }
@@ -79,6 +82,90 @@ namespace ConsoleApp2
                 for (int j = 0; j < m; j++)
                     mat[i, j] = rand.Next(-1000, 1000);
             return mat;
+        }
+        public void SumTest()
+        {
+            string filename = "SumTest.txt";
+            try
+            {
+                for (int k = 0; k < 20; k++)
+                {
+                    arr = MakeRandomArr(arr);
+                    WriteArr(arr, filename, "Исходные данные");
+                    result = MathCl.Sum(arr);
+                    using (StreamWriter sw = new StreamWriter(filename, true))
+                        sw.WriteLine("Итоговые данные\n{0}", result);
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
+            catch (Exception e)
+            {
+                using (StreamWriter sw = new StreamWriter(filename, true))
+                    sw.WriteLine("Ошибка: " + e.Message + "\nИсточник: " + e.TargetSite);
+            }
+        }
+        public void MulTest()
+        {
+            string filename = "MulTest.txt";
+            try
+            {
+                for (int k = 0; k < 20; k++)
+                {
+                    arr = MakeRandomArr(arr);
+                    WriteArr(arr, filename, "Исходные данные");
+                    result = MathCl.Mul(arr);
+                    using (StreamWriter sw = new StreamWriter(filename, true))
+                        sw.WriteLine("Итоговые данные\n{0}", result);
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
+            catch (Exception e)
+            {
+                using (StreamWriter sw = new StreamWriter(filename, true))
+                    sw.WriteLine("Ошибка: " + e.Message + "\nИсточник: " + e.TargetSite);
+            }
+        }
+        public void AverageTest()
+        {
+            string filename = "AverageTest.txt";
+            try
+            {
+                for (int k = 0; k < 20; k++)
+                {
+                    arr = MakeRandomArr(arr);
+                    WriteArr(arr, filename, "Исходные данные");
+                    result = MathCl.Average(arr);
+                    using (StreamWriter sw = new StreamWriter(filename, true))
+                        sw.WriteLine("Итоговые данные\n{0}", result);
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
+            catch (Exception e)
+            {
+                using (StreamWriter sw = new StreamWriter(filename, true))
+                    sw.WriteLine("Ошибка: " + e.Message + "\nИсточник: " + e.TargetSite);
+            }
+        }
+        public void GeomAverageTest()
+        {
+            string filename = "GeomAverageTest.txt";
+            try
+            {
+                for (int k = 0; k < 20; k++)
+                {
+                    arr = MakeRandomArr(arr);
+                    WriteArr(arr, filename, "Исходные данные");
+                    result = MathCl.GeomAverage(arr);
+                    using (StreamWriter sw = new StreamWriter(filename, true))
+                        sw.WriteLine("Итоговые данные\n{0}", result);
+                    System.Threading.Thread.Sleep(100);
+                }
+            }
+            catch (Exception e)
+            {
+                using (StreamWriter sw = new StreamWriter(filename, true))
+                    sw.WriteLine("Ошибка: " + e.Message + "\nИсточник: " + e.TargetSite);
+            }
         }
         public void ArrSortTest()
         {
