@@ -4,7 +4,7 @@
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
-
+//Проект мат функций
 namespace MathLib
 {
     public class MathCl
