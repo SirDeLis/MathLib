@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//Неиспользуемые библиотеки, влияют на быстродействие 
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace MathLib
 {
@@ -48,7 +49,6 @@ namespace MathLib
         }
 
     }
-
     public class Arranges
     {
         public static double[] ArrSort(double[] arr, bool dir)
@@ -64,7 +64,7 @@ namespace MathLib
         {
             double finded = arr[0];
             int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
@@ -86,42 +86,44 @@ namespace MathLib
             double[] result = { finded, findedIndex };
             return result;
         }
-        public static double ArrDet(double[,] arr)
+        public static double ArrDet(double[,] arr) 
         {
             double det;
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
-                det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
+                det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]); // Не универсальное решение, за счет использования строгой индексации
                 return det;
-            }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
+            }
+            else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
             {
                 det = arr[0, 0] * arr[1, 1] * arr[2, 2];
                 det += arr[0, 1] * arr[1, 2] * arr[2, 0];
                 det += arr[0, 2] * arr[1, 0] * arr[2, 1];
                 det -= arr[0, 2] * arr[1, 1] * arr[2, 0];
                 det -= arr[0, 0] * arr[1, 2] * arr[2, 1];
-                det-= arr[0, 1] * arr[1, 0] * arr[2, 2];
+                det -= arr[0, 1] * arr[1, 0] * arr[2, 2];// Не универсальное решение, за счет использования строгой индексации
                 return det;
-            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
+            }
+            else if (arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
             {
-                det = arr[0, 0] *(arr[1, 1] * arr[2, 2] * arr[3, 3]+ arr[1, 2] * arr[2, 3] * arr[3, 1]+ arr[1, 3] * arr[2, 1] * arr[3, 2]- arr[1, 3] * arr[2, 2] * arr[3, 1]- arr[1, 1] * arr[2, 3] * arr[3, 2]- arr[1, 2] * arr[2, 1] * arr[3, 3]);
+                det = arr[0, 0] * (arr[1, 1] * arr[2, 2] * arr[3, 3] + arr[1, 2] * arr[2, 3] * arr[3, 1] + arr[1, 3] * arr[2, 1] * arr[3, 2] - arr[1, 3] * arr[2, 2] * arr[3, 1] - arr[1, 1] * arr[2, 3] * arr[3, 2] - arr[1, 2] * arr[2, 1] * arr[3, 3]);
                 det -= arr[1, 0] * (arr[0, 1] * arr[2, 2] * arr[3, 3] + arr[0, 2] * arr[2, 3] * arr[3, 1] + arr[0, 3] * arr[2, 1] * arr[3, 2] - arr[0, 3] * arr[2, 2] * arr[3, 1] - arr[0, 1] * arr[2, 3] * arr[3, 2] - arr[0, 2] * arr[2, 1] * arr[3, 3]);
-                det += arr[2, 0] *(arr[0, 1] * arr[1, 2] * arr[3, 3]+ arr[0, 2] * arr[1, 3] * arr[3, 1]+ arr[0, 3] * arr[1, 1] * arr[3, 2]- arr[0, 3] * arr[1, 2] * arr[3, 1]- arr[0, 1] * arr[1, 3] * arr[3, 2]- arr[0, 2] * arr[1, 1] * arr[3, 3]);
-                det -= arr[3, 0] * (arr[0, 1] * arr[1, 2] * arr[2, 3] + arr[0, 2] * arr[1, 3] * arr[2, 1] + arr[0, 3] * arr[1, 1] * arr[2, 2] - arr[0, 3] * arr[1, 2] * arr[2, 1] - arr[0, 1] * arr[1, 3] * arr[2, 2] - arr[0, 2] * arr[1, 1] * arr[2, 3]);
+                det += arr[2, 0] * (arr[0, 1] * arr[1, 2] * arr[3, 3] + arr[0, 2] * arr[1, 3] * arr[3, 1] + arr[0, 3] * arr[1, 1] * arr[3, 2] - arr[0, 3] * arr[1, 2] * arr[3, 1] - arr[0, 1] * arr[1, 3] * arr[3, 2] - arr[0, 2] * arr[1, 1] * arr[3, 3]);
+                det -= arr[3, 0] * (arr[0, 1] * arr[1, 2] * arr[2, 3] + arr[0, 2] * arr[1, 3] * arr[2, 1] + arr[0, 3] * arr[1, 1] * arr[2, 2] - arr[0, 3] * arr[1, 2] * arr[2, 1] - arr[0, 1] * arr[1, 3] * arr[2, 2] - arr[0, 2] * arr[1, 1] * arr[2, 3]);// Использование вычислений при помощи строгой индексации, решение не оптимально 
                 return det;
             }
             else
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); // Отсутсвие универсальности, за счет ограничения 4х4
             }
         }
-        public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
+        public static double[,] MatrixSum(double[,] arr1, double[,] arr2) 
         {
             if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
             {
-                for(int i = 0; i < arr1.GetLength(0); i++)
+                for (int i = 0; i < arr1.GetLength(0); i++)
                 {
-                    for(int y = 0; y < arr1.GetLength(1); y++)
+                    for (int y = 0; y < arr1.GetLength(1); y++)
                     {
                         arr1[i, y] += arr2[i, y];
                     }
@@ -129,10 +131,10 @@ namespace MathLib
             }
             return (arr1);
         }
-        public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
+        public static double[,] MatrixMul(double[,] arr1, double[,] arr2) 
         {
-            double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            double[,] arr = { { 0 }, { 0 } };
+            if (arr1.GetLength(0) == arr2.GetLength(1)) // Некорректная проверка размерностей
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
                 for (int i = 0; i < arr.GetLength(0); i++)
@@ -152,5 +154,4 @@ namespace MathLib
         }
 
     }
-
 }
