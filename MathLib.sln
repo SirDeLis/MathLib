@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib", "MathLib\MathLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\..\Programms\ConsoleApp1\ConsoleApp1.csproj", "{CCE6223C-9412-4B25-AAE7-C78B20C55BAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{C1C31A1A-E4C4-4822-B1D0-6461D99A9E9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CCE6223C-9412-4B25-AAE7-C78B20C55BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCE6223C-9412-4B25-AAE7-C78B20C55BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCE6223C-9412-4B25-AAE7-C78B20C55BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1C31A1A-E4C4-4822-B1D0-6461D99A9E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C31A1A-E4C4-4822-B1D0-6461D99A9E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C31A1A-E4C4-4822-B1D0-6461D99A9E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C31A1A-E4C4-4822-B1D0-6461D99A9E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
