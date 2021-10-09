@@ -88,8 +88,9 @@ namespace MathLib
         }
         public static double ArrDet(double[,] arr)
         {
-            double det;
-            if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
+            double det;//отсутствует опеределение определителя матрицы состоящего из 1 элемента (det=arr[0,0]) 
+
+            if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)//для определения является ли матрица квадратной необходимо использовать условие: arr.GetLength(0) == arr.GetLength(1), но это если необходимо найти определитель матрицы n строк на n столбцов
             {
                 det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
                 return det;
@@ -102,7 +103,7 @@ namespace MathLib
                 det -= arr[0, 0] * arr[1, 2] * arr[2, 1];
                 det-= arr[0, 1] * arr[1, 0] * arr[2, 2];
                 return det;
-            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
+            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4) //отсутствует опеределение определителя матрицы состоящего из более 4x4 элементов 
             {
                 det = arr[0, 0] *(arr[1, 1] * arr[2, 2] * arr[3, 3]+ arr[1, 2] * arr[2, 3] * arr[3, 1]+ arr[1, 3] * arr[2, 1] * arr[3, 2]- arr[1, 3] * arr[2, 2] * arr[3, 1]- arr[1, 1] * arr[2, 3] * arr[3, 2]- arr[1, 2] * arr[2, 1] * arr[3, 3]);
                 det -= arr[1, 0] * (arr[0, 1] * arr[2, 2] * arr[3, 3] + arr[0, 2] * arr[2, 3] * arr[3, 1] + arr[0, 3] * arr[2, 1] * arr[3, 2] - arr[0, 3] * arr[2, 2] * arr[3, 1] - arr[0, 1] * arr[2, 3] * arr[3, 2] - arr[0, 2] * arr[2, 1] * arr[3, 3]);
@@ -117,22 +118,23 @@ namespace MathLib
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))//отсутствуют действия, при ложном условии сложения двух матриц, т.е. else { return null; }.
             {
-                for(int i = 0; i < arr1.GetLength(0); i++)
+                for (int i = 0; i < arr1.GetLength(0); i++)
                 {
-                    for(int y = 0; y < arr1.GetLength(1); y++)
+                    for (int y = 0; y < arr1.GetLength(1); y++)
                     {
-                        arr1[i, y] += arr2[i, y];
+                        arr1[i, y] += arr2[i, y];//необходимо создать итоговый массив, в который будут заносится все результаты, поскольку данная функция изменяет и возвращяет массив, который передал пользователь, т.е. после выполнения этой функции arr1 изменятся во всей программе, чего быть не должно, поскольку функция возврящает значение
                     }
                 }
             }
             return (arr1);
+
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            double[,] arr = { { 0 },{ 0 } };//бесмысленная инициальзация переменной
+            if (arr1.GetLength(0) == arr2.GetLength(1))//отсутствуют действия при ложном условии else {return null;}. при ложном условии функция вернёт вертикальную матрицу, у которой 2 элемента 0. + неверно указано условие (должно быть: if (arr1.GetLength(1) == arr2.GetLength(0)))
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
                 for (int i = 0; i < arr.GetLength(0); i++)
@@ -148,7 +150,7 @@ namespace MathLib
                     }
                 }
             }
-            return arr;
+            return arr;//возвращять arr функция должна при истином условии, т.е. return должен быть внутри ветвления if
         }
 
     }
