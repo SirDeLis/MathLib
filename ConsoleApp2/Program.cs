@@ -13,11 +13,13 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             Tests t = new Tests();
+            //Тесты для класса Arranges
             t.ArrSortTest();
             t.ArrDetTest();
             t.ArrFindTest();
             t.MatrixSumTest();
             t.MatrixMulTest();
+            //Тесты для класса MathCl
             t.SumTest();
             t.MulTest();
             t.AverageTest();
