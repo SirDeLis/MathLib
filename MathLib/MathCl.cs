@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//Не используется
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace MathLib
 {
@@ -63,12 +64,12 @@ namespace MathLib
         public static double[] ArrFind(double[] arr, bool dir)
         {
             double finded = arr[0];
-            int findedIndex = 0;
+            int findedIndex = 0;// Индекс максимального числа может быть не один. Коректнее int[]
             for(int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
-                    if (finded < arr[i])
+                    if (finded < arr[i])// Не кореектное условие. Правильнее <=
                     {
                         finded = arr[i];
                         findedIndex = i;
@@ -76,22 +77,22 @@ namespace MathLib
                 }
                 else
                 {
-                    if (finded > arr[i])
+                    if (finded > arr[i])//Аналогино 
                     {
                         finded = arr[i];
                         findedIndex = i;
                     }
                 }
             }
-            double[] result = { finded, findedIndex };
+            double[] result = { finded, findedIndex }; //Имеет смысл изменить на лист.
             return result;
         }
         public static double ArrDet(double[,] arr)
         {
             double det;
-            if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
+            if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2) //Не самый оптимальный метод. Считает не любые матрицы.
             {
-                det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
+                det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]); 
                 return det;
             }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
             {
@@ -127,14 +128,15 @@ namespace MathLib
                     }
                 }
             }
-            return (arr1);
+            return (arr1);//Не совсем удачный возврат при невыполнении условия, в плане того что возврат первого массива смутит пользователя или усложнит интеграцию метода.
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            //Не правильный подсчет на матрице 4,4 и 2,4
+            double[,] arr = { { 0 },{ 0 } }; 
+            if (arr1.GetLength(0) == arr2.GetLength(1))//Правильная проверка arr1.GetLength(1) == arr2.GetLength(0)
             {
-                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
+                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];//Неправильные размерности массива
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
@@ -142,13 +144,12 @@ namespace MathLib
                         arr[i, y] = 0;
                         for (int k = 0; k < arr1.GetLength(1); k++)
                         {
-
                             arr[i, y] += arr1[i, k] * arr2[k, y];
                         }
                     }
                 }
             }
-            return arr;
+            return arr;//Не совсем удачный возврат при невыполнении условия, в плане того что возврат массивов нулей смутит пользователя или усложнит интеграцию метода.
         }
 
     }
