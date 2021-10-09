@@ -1,8 +1,8 @@
 ﻿using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks; не использованные библиотеки
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MathLib
 {
@@ -64,7 +64,7 @@ namespace MathLib
         {
             double finded = arr[0];
             int findedIndex = 0;
-            for (int i = 0; i < arr.Length; i++)
+            for(int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
@@ -93,59 +93,57 @@ namespace MathLib
             {
                 det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
                 return det;
-            }
-            else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
+            }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
             {
                 det = arr[0, 0] * arr[1, 1] * arr[2, 2];
                 det += arr[0, 1] * arr[1, 2] * arr[2, 0];
                 det += arr[0, 2] * arr[1, 0] * arr[2, 1];
                 det -= arr[0, 2] * arr[1, 1] * arr[2, 0];
                 det -= arr[0, 0] * arr[1, 2] * arr[2, 1];
-                det -= arr[0, 1] * arr[1, 0] * arr[2, 2];
+                det-= arr[0, 1] * arr[1, 0] * arr[2, 2];
                 return det;
-            }
-            else if (arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
+            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
             {
-                det = arr[0, 0] * (arr[1, 1] * arr[2, 2] * arr[3, 3] + arr[1, 2] * arr[2, 3] * arr[3, 1] + arr[1, 3] * arr[2, 1] * arr[3, 2] - arr[1, 3] * arr[2, 2] * arr[3, 1] - arr[1, 1] * arr[2, 3] * arr[3, 2] - arr[1, 2] * arr[2, 1] * arr[3, 3]);
+                det = arr[0, 0] *(arr[1, 1] * arr[2, 2] * arr[3, 3]+ arr[1, 2] * arr[2, 3] * arr[3, 1]+ arr[1, 3] * arr[2, 1] * arr[3, 2]- arr[1, 3] * arr[2, 2] * arr[3, 1]- arr[1, 1] * arr[2, 3] * arr[3, 2]- arr[1, 2] * arr[2, 1] * arr[3, 3]);
                 det -= arr[1, 0] * (arr[0, 1] * arr[2, 2] * arr[3, 3] + arr[0, 2] * arr[2, 3] * arr[3, 1] + arr[0, 3] * arr[2, 1] * arr[3, 2] - arr[0, 3] * arr[2, 2] * arr[3, 1] - arr[0, 1] * arr[2, 3] * arr[3, 2] - arr[0, 2] * arr[2, 1] * arr[3, 3]);
-                det += arr[2, 0] * (arr[0, 1] * arr[1, 2] * arr[3, 3] + arr[0, 2] * arr[1, 3] * arr[3, 1] + arr[0, 3] * arr[1, 1] * arr[3, 2] - arr[0, 3] * arr[1, 2] * arr[3, 1] - arr[0, 1] * arr[1, 3] * arr[3, 2] - arr[0, 2] * arr[1, 1] * arr[3, 3]);
+                det += arr[2, 0] *(arr[0, 1] * arr[1, 2] * arr[3, 3]+ arr[0, 2] * arr[1, 3] * arr[3, 1]+ arr[0, 3] * arr[1, 1] * arr[3, 2]- arr[0, 3] * arr[1, 2] * arr[3, 1]- arr[0, 1] * arr[1, 3] * arr[3, 2]- arr[0, 2] * arr[1, 1] * arr[3, 3]);
                 det -= arr[3, 0] * (arr[0, 1] * arr[1, 2] * arr[2, 3] + arr[0, 2] * arr[1, 3] * arr[2, 1] + arr[0, 3] * arr[1, 1] * arr[2, 2] - arr[0, 3] * arr[1, 2] * arr[2, 1] - arr[0, 1] * arr[1, 3] * arr[2, 2] - arr[0, 2] * arr[1, 1] * arr[2, 3]);
                 return det;
             }
             else
             {
-                return Convert.ToDouble(null); //ошибок не обнаружено
+                return Convert.ToDouble(null);
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
             if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
             {
-                for (int i = 0; i < arr1.GetLength(0); i++) //Затрагивается не вся область данных матрицы
+                for(int i = 0; i < arr1.GetLength(0); i++)
                 {
-                    for (int y = 0; y < arr1.GetLength(1); y++) //Затрагивается не вся область данных матрицы
+                    for(int y = 0; y < arr1.GetLength(1); y++)
                     {
                         arr1[i, y] += arr2[i, y];
                     }
                 }
             }
-            return (arr1); //возвращается первоначальная матрица
+            return (arr1);
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 }, { 0 } };//неверное создание матрицы
+            double[,] arr = { { 0 },{ 0 } };
             if (arr1.GetLength(0) == arr2.GetLength(1))
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
-                for (int i = 0; i < arr.GetLength(0); i++)//аргументов может быть больше одного
+                for (int i = 0; i < arr.GetLength(0); i++)
                 {
-                    for (int y = 0; y < arr.GetLength(1); y++)//аргументов может быть больше одного
+                    for (int y = 0; y < arr.GetLength(1); y++)
                     {
                         arr[i, y] = 0;
-                        for (int k = 0; k < arr1.GetLength(1); k++)//аргументов может быть больше одного
+                        for (int k = 0; k < arr1.GetLength(1); k++)
                         {
 
-                            arr[i, y] += arr1[i, k] * arr2[k, y];//неверное приведение матриц
+                            arr[i, y] += arr1[i, k] * arr2[k, y];
                         }
                     }
                 }
@@ -156,4 +154,3 @@ namespace MathLib
     }
 
 }
-
