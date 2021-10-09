@@ -17,19 +17,20 @@ namespace ConsoleApp2
             //t.ArrDetTest();
             //t.ArrFindTest();
             //t.MatrixSumTest();
-            t.MatrixMulTest();
+            //t.MatrixMulTest();
           
         }
 
     }
     class Tests
     {
-        double det;
+        double result;
         double[] arr;
         double[,] math;
         double[,] math1;
         double[,] math2;
         Random r = new Random();
+        //метод записи массива в файл
         void WriteArr(double[] arr, string filename, string message)
         {
             using (StreamWriter sw = new StreamWriter(filename, true))
@@ -42,6 +43,7 @@ namespace ConsoleApp2
                 sw.WriteLine();
             }
         }
+        //метод записи матрицы в файл
         void WriteMath(double[,] math, string filename, string message)
         {
             using (StreamWriter sw = new StreamWriter(filename, true))
@@ -55,6 +57,7 @@ namespace ConsoleApp2
                 }
             }
         }
+        //создает массив рандомной длины от 0 до 10 с рандомными значениями от -1000 до 1000
         double[] MakeRandomArr(double[] ar)
         {
             Random rand = new Random();
@@ -64,6 +67,7 @@ namespace ConsoleApp2
                 ar[i] = rand.Next(-1000, 1000);
             return ar;
         }
+        //создает матрицу рандомной размерности от 0,0 до 6,6 с рандомными значениями от -1000 до 1000
         double[,] MakeRandomMath(double[,] mat)
         {
             Random rand = new Random();
@@ -125,9 +129,9 @@ namespace ConsoleApp2
                 {
                     math = MakeRandomMath(math);
                     WriteMath(math, filename, "Исходные данные");
-                    det = Arranges.ArrDet(math);
+                    result = Arranges.ArrDet(math);
                     using (StreamWriter sw = new StreamWriter(filename, true))
-                        sw.WriteLine("Итоговые данные\n{0}", det);
+                        sw.WriteLine("Итоговые данные\n{0}", result);
                     System.Threading.Thread.Sleep(100);                    
                 }
             }
