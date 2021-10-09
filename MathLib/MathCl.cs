@@ -114,7 +114,7 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null); //ошибок не обнаружено
+                return Convert.ToDouble(null); //ошибок не обнаруженo
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
