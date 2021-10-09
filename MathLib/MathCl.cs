@@ -86,8 +86,10 @@ namespace MathLib
             double[] result = { finded, findedIndex };
             return result;
         }
-        public static double ArrDet(double[,] arr)
+        public static double ArrDet(double[,] arr)//поиск детерминанта
         {
+            //не оптимальный метод решения
+            //не ситуативное решение (описан малый список возможных входных данных) 
             double det;
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
@@ -128,19 +130,19 @@ namespace MathLib
                 }
             }
             return (arr1);
-        }
+        } //сумма матриц
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
             double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(1)) //неверное написанное уловие для проверки матриц
             {
-                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
+                arr = new double[arr1.GetLength(0), arr2.GetLength(1)]; // создание массива написано неверно
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
                         arr[i, y] = 0;
-                        for (int k = 0; k < arr1.GetLength(1); k++)
+                        for (int k = 0; k < arr1.GetLength(1); k++) // условия проверки логически неверное
                         {
 
                             arr[i, y] += arr1[i, k] * arr2[k, y];
@@ -149,7 +151,7 @@ namespace MathLib
                 }
             }
             return arr;
-        }
+        }//произведение матриц
 
     }
 
