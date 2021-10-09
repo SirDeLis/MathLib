@@ -88,6 +88,7 @@ namespace MathLib
         }
         public static double ArrDet(double[,] arr)
         {
+            //при индексе матрицы больше 4, или не одинаковый индекс, он будет возращать результат 0
             double det;
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
@@ -112,7 +113,7 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null); //при индексе матрицы больше 4, или не одинаковый индекс, он будет возращать результат 0
+                return Convert.ToDouble(null);// избыточный код, можно просто вернуть 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
@@ -131,7 +132,7 @@ namespace MathLib
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
+            double[,] arr = { { 0 },{ 0 } };// лишний код, лучше просто объявить, но не инициализировать
             if (arr1.GetLength(0) == arr2.GetLength(1)) //при одинаковом индексе двух матриц, пройдет дальше, а при разных индексах матриц, выдадит только первую матрицу без объединения
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
