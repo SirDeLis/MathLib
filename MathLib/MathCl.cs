@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MathLib
 {
-    public class MathCl
+    public class MathCl//работает нормально
     {
         public static double Sum(double[] x)
         {
@@ -59,7 +59,7 @@ namespace MathLib
                 Array.Reverse(arr);
             }
             return arr;
-        }
+        }//нормально работает
         public static double[] ArrFind(double[] arr, bool dir)
         {
             double finded = arr[0];
@@ -85,7 +85,7 @@ namespace MathLib
             }
             double[] result = { finded, findedIndex };
             return result;
-        }
+        }//можно добавить проверку
         public static double ArrDet(double[,] arr)
         {
             double det;
@@ -114,7 +114,7 @@ namespace MathLib
             {
                 return Convert.ToDouble(null);
             }
-        }
+        }//работает
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
             if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
@@ -149,7 +149,7 @@ namespace MathLib
                 }
             }
             return arr;
-        }
+        }//тут только половина метода
 
     }
 
