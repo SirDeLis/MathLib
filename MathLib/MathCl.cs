@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks; библиотнки не используются
 
 namespace MathLib
 {
-    public class MathCl
+    public class MathCl//работает нормально
     {
         public static double Sum(double[] x)
         {
@@ -51,7 +51,7 @@ namespace MathLib
 
     public class Arranges
     {
-        public static double[] ArrSort(double[] arr, bool dir)
+        public static double[] ArrSort(double[] arr, bool dir) //работает нормально
         {
             Array.Sort(arr);
             if (!dir)
@@ -62,15 +62,15 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
-            int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+            double finded = arr[0]; //кол-во найденых чисел может быть > 1
+            int findedIndex = 0; //кол-во найденых индексов может быть > 1
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
                     if (finded < arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i];//требувется проверка на повторение максимального числа и запись его индекса в массив
                         findedIndex = i;
                     }
                 }
@@ -78,15 +78,15 @@ namespace MathLib
                 {
                     if (finded > arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i];//аналогично с поиском максимального
                         findedIndex = i;
                     }
                 }
             }
-            double[] result = { finded, findedIndex };
+            double[] result = { finded, findedIndex };//структура результата должна быть более сложной
             return result;
         }
-        public static double ArrDet(double[,] arr)
+        public static double ArrDet(double[,] arr) //работает нормально
         {
             double det;
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
@@ -117,13 +117,13 @@ namespace MathLib
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) //отсутствует оператор else, в случае если матрицы имеют разное кол-во столбцов и строк выводит первую матрицу
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
                     for(int y = 0; y < arr1.GetLength(1); y++)
                     {
-                        arr1[i, y] += arr2[i, y];
+                        arr1[i, y] += arr2[i, y]; //изменяется и возвращается одна из первоначальных матриц
                     }
                 }
             }
@@ -131,7 +131,8 @@ namespace MathLib
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
+            //отсутсвует оповещение об ошибке в том случае, когда матрицы нельзя умножить друг на друга
+            double[,] arr = { { 0 },{ 0 } };//матрица создана неверно
             if (arr1.GetLength(0) == arr2.GetLength(1))
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
@@ -140,9 +141,8 @@ namespace MathLib
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
                         arr[i, y] = 0;
-                        for (int k = 0; k < arr1.GetLength(1); k++)
+                        for (int k = 0; k < arr1.GetLength(1); k++) 
                         {
-
                             arr[i, y] += arr1[i, k] * arr2[k, y];
                         }
                     }
