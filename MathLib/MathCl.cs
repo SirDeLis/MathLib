@@ -114,7 +114,7 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null); // Возвращать ноль не корректно т.к. занчение опредилителя тоже может быть равно 0
+                return Convert.ToDouble(null); // Возвращать ноль не корректно т.к. значение опредилителя тоже может быть равно 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
