@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace MathLib
 {
+    
+
     public class MathCl
     {
         public static double Sum(double[] x)
@@ -62,7 +64,7 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
+            double finded = arr[0];// Показанно в примере
             int findedIndex = 0;
             for(int i = 0; i < arr.Length; i++)
             {
@@ -112,12 +114,12 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); // Возвращать ноль не корректно т.к. занчение опредилителя тоже может быть равно 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) 
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
