@@ -119,7 +119,7 @@ namespace MathLib
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) 
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))  //Нужно обработать условие когда матрицы не равны друг другу по размерности 
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
@@ -129,22 +129,23 @@ namespace MathLib
                     }
                 }
             }
-            return (arr1);
+            return (arr1); 
+
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            double[,] arr = { { 0 },{ 0 } }; 
+            if (arr1.GetLength(0) == arr2.GetLength(1)) // Нужно обработать условие когда матрицы не равны друг другу по размерности 
             {
-                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
-                for (int i = 0; i < arr.GetLength(0); i++)
+                arr = new double[arr1.GetLength(0), arr2.GetLength(1)]; // Создавать массив нужно было сдесь
+
+                for (int i = 0; i < arr.GetLength(0); i++) 
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
-                        arr[i, y] = 0;
+                        arr[i, y] = 0; // Не нужная инициализация
                         for (int k = 0; k < arr1.GetLength(1); k++)
                         {
-
                             arr[i, y] += arr1[i, k] * arr2[k, y];
                         }
                     }
