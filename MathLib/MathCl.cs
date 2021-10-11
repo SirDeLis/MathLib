@@ -88,21 +88,22 @@ namespace MathLib
         }
         public static double ArrDet(double[,] arr)
         {
+            //метод решения является не оптимальным, ограничение входных данных
             double det;
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
                 det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
                 return det;
-            }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
+            }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3) //не универсальное решение
             {
                 det = arr[0, 0] * arr[1, 1] * arr[2, 2];
                 det += arr[0, 1] * arr[1, 2] * arr[2, 0];
                 det += arr[0, 2] * arr[1, 0] * arr[2, 1];
                 det -= arr[0, 2] * arr[1, 1] * arr[2, 0];
                 det -= arr[0, 0] * arr[1, 2] * arr[2, 1];
-                det-= arr[0, 1] * arr[1, 0] * arr[2, 2];
+                det-= arr[0, 1] * arr[1, 0] * arr[2, 2]; 
                 return det;
-            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
+            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4) //не универсальное решение
             {
                 det = arr[0, 0] *(arr[1, 1] * arr[2, 2] * arr[3, 3]+ arr[1, 2] * arr[2, 3] * arr[3, 1]+ arr[1, 3] * arr[2, 1] * arr[3, 2]- arr[1, 3] * arr[2, 2] * arr[3, 1]- arr[1, 1] * arr[2, 3] * arr[3, 2]- arr[1, 2] * arr[2, 1] * arr[3, 3]);
                 det -= arr[1, 0] * (arr[0, 1] * arr[2, 2] * arr[3, 3] + arr[0, 2] * arr[2, 3] * arr[3, 1] + arr[0, 3] * arr[2, 1] * arr[3, 2] - arr[0, 3] * arr[2, 2] * arr[3, 1] - arr[0, 1] * arr[2, 3] * arr[3, 2] - arr[0, 2] * arr[2, 1] * arr[3, 3]);
@@ -117,7 +118,7 @@ namespace MathLib
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) // отсутствует else
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
@@ -132,15 +133,15 @@ namespace MathLib
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
             double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(1)) //некорректное условие проверки матриц, отсутствует else
             {
-                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
+                arr = new double[arr1.GetLength(0), arr2.GetLength(1)]; //неверное формирование массива
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
                         arr[i, y] = 0;
-                        for (int k = 0; k < arr1.GetLength(1); k++)
+                        for (int k = 0; k < arr1.GetLength(1); k++) //неверное условие проверки
                         {
 
                             arr[i, y] += arr1[i, k] * arr2[k, y];
