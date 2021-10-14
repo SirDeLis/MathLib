@@ -112,12 +112,12 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); //значение определителя не может = 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))//матрицы должны обрабатываться когда они не равны друг другу
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
@@ -131,15 +131,15 @@ namespace MathLib
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
-            double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            double[,] arr = { { 0 },{ 0 } };//матрица создана неверно
+            if (arr1.GetLength(0) == arr2.GetLength(1))//создавать массив стоит тут
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
-                        arr[i, y] = 0;
+                        arr[i, y] = 0;//возможно инициализация не требуется
                         for (int k = 0; k < arr1.GetLength(1); k++)
                         {
 
