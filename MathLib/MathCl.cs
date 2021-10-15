@@ -129,7 +129,7 @@ namespace MathLib
             }
             return (arr1);
         }
-        public static double[,] MatrixMul(double[,] arr1, double[,] arr2) //необходимо оповещение о невозможности умножать матрицы друг на друга
+        public static double[,] MatrixMul(double[,] arr1, double[,] arr2) //необходимо оповещение  о невозможности умножать матрицы друг на друга
         {
             double[,] arr = { { 0 },{ 0 } };
             if (arr1.GetLength(0) == arr2.GetLength(1))
