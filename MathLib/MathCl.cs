@@ -62,7 +62,7 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
+            double finded = arr[0]; // Показанно в примере
             int findedIndex = 0;
             for(int i = 0; i < arr.Length; i++)
             {
@@ -70,7 +70,7 @@ namespace MathLib
                 {
                     if (finded < arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i]; //требувется проверка на повторение максимального числа и запись его индекса в массив
                         findedIndex = i;
                     }
                 }
@@ -78,7 +78,7 @@ namespace MathLib
                 {
                     if (finded > arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i]; //требувется проверка на повторение минимального числа и запись его индекса в массив
                         findedIndex = i;
                     }
                 }
@@ -112,7 +112,7 @@ namespace MathLib
             }
             else
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); // Возвращать ноль не корректно ведь значение опредилителя тоже может быть равно 0
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
@@ -129,7 +129,7 @@ namespace MathLib
             }
             return (arr1);
         }
-        public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
+        public static double[,] MatrixMul(double[,] arr1, double[,] arr2) //необходимо оповещение о невозможности умножать матрицы друг на друга
         {
             double[,] arr = { { 0 },{ 0 } };
             if (arr1.GetLength(0) == arr2.GetLength(1))
