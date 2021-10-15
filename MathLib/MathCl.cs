@@ -1,8 +1,10 @@
 ﻿using System;
+
+/* Неиспользуемые библиотеки
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;*/
 
 namespace MathLib
 {
@@ -62,13 +64,13 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
-            int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+            double finded = arr[0]; //будет найдено только одно число, даже если мин/макс несколько. Можно создать массив
+            int findedIndex = 0;//будет найден один индекс, даже если мин/макс несколько. Можно создать массив
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
-                    if (finded < arr[i])
+                    if (finded < arr[i]) //если число равно - оно не учитывается
                     {
                         finded = arr[i];
                         findedIndex = i;
@@ -76,24 +78,25 @@ namespace MathLib
                 }
                 else
                 {
-                    if (finded > arr[i])
+                    if (finded > arr[i]) //если число равно - оно не учитывается
                     {
                         finded = arr[i];
                         findedIndex = i;
                     }
                 }
             }
-            double[] result = { finded, findedIndex };
+            double[] result = { finded, findedIndex }; //для нахождения всех мин/макс - придется вернуть массив массивов
             return result;
         }
         public static double ArrDet(double[,] arr)
         {
             double det;
-            if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
+            if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2) 
             {
                 det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
                 return det;
-            }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
+            }
+            else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
             {
                 det = arr[0, 0] * arr[1, 1] * arr[2, 2];
                 det += arr[0, 1] * arr[1, 2] * arr[2, 0];
@@ -110,14 +113,15 @@ namespace MathLib
                 det -= arr[3, 0] * (arr[0, 1] * arr[1, 2] * arr[2, 3] + arr[0, 2] * arr[1, 3] * arr[2, 1] + arr[0, 3] * arr[1, 1] * arr[2, 2] - arr[0, 3] * arr[1, 2] * arr[2, 1] - arr[0, 1] * arr[1, 3] * arr[2, 2] - arr[0, 2] * arr[1, 1] * arr[2, 3]);
                 return det;
             }
-            else
+            else //нет матриц размером больше, чем 4 на 4
+                 //нет матрицы с одним элементом)
             {
-                return Convert.ToDouble(null);
+                return Convert.ToDouble(null); 
             }
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) 
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
@@ -126,7 +130,7 @@ namespace MathLib
                         arr1[i, y] += arr2[i, y];
                     }
                 }
-            }
+            } //а что если условие не выполнено? Вернется неверный ответ
             return (arr1);
         }
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
@@ -147,7 +151,7 @@ namespace MathLib
                         }
                     }
                 }
-            }
+            } //а что если условие не выполнено? Вернется неверный ответ
             return arr;
         }
 
