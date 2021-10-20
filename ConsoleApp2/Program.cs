@@ -15,15 +15,15 @@ namespace ConsoleApp2
             Tests t = new Tests();
             //Тесты для класса Arranges
             t.ArrSortTest();
-            t.ArrDetTest();
-            t.ArrFindTest();
-            t.MatrixSumTest();
-            t.MatrixMulTest();
+            //t.ArrDetTest();
+            //t.ArrFindTest();
+            //t.MatrixSumTest();
+            //t.MatrixMulTest();
             //Тесты для класса MathCl
-            t.SumTest();
-            t.MulTest();
-            t.AverageTest();
-            t.GeomAverageTest();
+            //t.SumTest();
+            //t.MulTest();
+            //t.AverageTest();
+            //t.GeomAverageTest();
         }
 
     }
@@ -176,11 +176,12 @@ namespace ConsoleApp2
             {
                 for (int k = 0; k < 20; k++)
                 {
-                    bool a = Convert.ToBoolean(r.Next(0, 1));
+                    System.Threading.Thread.Sleep(10);
+                    Boolean a = Convert.ToBoolean(r.Next(0, 2));
                     arr = MakeRandomArr(arr);
                     WriteArr(arr, filename, "Исходные данные");
                     arr = Arranges.ArrSort(arr, a);
-                    WriteArr(arr, filename, "Итоговые данные\n" + a.ToString() + "\n");
+                    WriteArr(arr, filename, "Итоговые данные\n" + a.ToString());
                     System.Threading.Thread.Sleep(100);
                 }
             }
@@ -197,11 +198,11 @@ namespace ConsoleApp2
             {
                 for (int k = 0; k < 20; k++)
                 {
-                    bool a = Convert.ToBoolean(r.Next(0, 1));
+                    bool a = Convert.ToBoolean(r.Next(0, 2));
                     arr = MakeRandomArr(arr);
                     WriteArr(arr, filename, "Исходные данные");
                     arr = Arranges.ArrFind(arr, a);
-                    WriteArr(arr, filename, "Итоговые данные\n" + a.ToString() + "\n");
+                    WriteArr(arr, filename, "Итоговые данные\n" + a.ToString());
                     System.Threading.Thread.Sleep(100);
                 }
             }
