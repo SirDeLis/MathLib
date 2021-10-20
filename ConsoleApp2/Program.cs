@@ -176,10 +176,11 @@ namespace ConsoleApp2
             {
                 for (int k = 0; k < 20; k++)
                 {
+                    bool a = Convert.ToBoolean(r.Next(0, 1));
                     arr = MakeRandomArr(arr);
                     WriteArr(arr, filename, "Исходные данные");
-                    arr = Arranges.ArrSort(arr, Convert.ToBoolean(r.Next(0, 1)));
-                    WriteArr(arr, filename, "Итоговые данные");
+                    arr = Arranges.ArrSort(arr, a);
+                    WriteArr(arr, filename, "Итоговые данные\n" + a.ToString() + "\n");
                     System.Threading.Thread.Sleep(100);
                 }
             }
@@ -196,10 +197,11 @@ namespace ConsoleApp2
             {
                 for (int k = 0; k < 20; k++)
                 {
+                    bool a = Convert.ToBoolean(r.Next(0, 1));
                     arr = MakeRandomArr(arr);
                     WriteArr(arr, filename, "Исходные данные");
-                    arr = Arranges.ArrFind(arr, Convert.ToBoolean(r.Next(0, 1)));
-                    WriteArr(arr, filename, "Итоговые данные");
+                    arr = Arranges.ArrFind(arr, a);
+                    WriteArr(arr, filename, "Итоговые данные\n" + a.ToString() + "\n");
                     System.Threading.Thread.Sleep(100);
                 }
             }
