@@ -86,9 +86,12 @@ namespace MathLib
             double[] result = { finded, findedIndex };
             return result;
         }
-        public static double ArrDet(double[,] arr)
+        public static double ArrDet(double[,] arr)  //поиск детерминанта
         {
+            //не оптимальный метод решения
+          
             double det;
+            //маленький список входных данных
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
                 det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
@@ -115,13 +118,13 @@ namespace MathLib
                 return Convert.ToDouble(null);
             }
         }
-        public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
+        public static double[,] MatrixSum(double[,] arr1, double[,] arr2)  //сумма матриц
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) // неверное условия проверки матриц 
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
-                    for(int y = 0; y < arr1.GetLength(1); y++)
+                    for(int y = 0; y < arr1.GetLength(1); y++) 
                     {
                         arr1[i, y] += arr2[i, y];
                     }
@@ -129,18 +132,18 @@ namespace MathLib
             }
             return (arr1);
         }
-        public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
+        public static double[,] MatrixMul(double[,] arr1, double[,] arr2)  //произведение матриц
         {
             double[,] arr = { { 0 },{ 0 } };
             if (arr1.GetLength(0) == arr2.GetLength(1))
             {
-                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
+                arr = new double[arr1.GetLength(0), arr2.GetLength(1)];//неверное формирование массива
                 for (int i = 0; i < arr.GetLength(0); i++)
                 {
                     for (int y = 0; y < arr.GetLength(1); y++)
                     {
                         arr[i, y] = 0;
-                        for (int k = 0; k < arr1.GetLength(1); k++)
+                        for (int k = 0; k < arr1.GetLength(1); k++) //не верные условия проверки
                         {
 
                             arr[i, y] += arr1[i, k] * arr2[k, y];
