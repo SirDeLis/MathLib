@@ -102,7 +102,7 @@ namespace MathLib
                 det -= arr[0, 0] * arr[1, 2] * arr[2, 1];
                 det-= arr[0, 1] * arr[1, 0] * arr[2, 2];
                 return det;
-            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4) //матрица может состоять из более, чем 4*4 элемента
+            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4) //матрица может состоять более, чем из 4*4 элемента
             {
                 det = arr[0, 0] *(arr[1, 1] * arr[2, 2] * arr[3, 3]+ arr[1, 2] * arr[2, 3] * arr[3, 1]+ arr[1, 3] * arr[2, 1] * arr[3, 2]- arr[1, 3] * arr[2, 2] * arr[3, 1]- arr[1, 1] * arr[2, 3] * arr[3, 2]- arr[1, 2] * arr[2, 1] * arr[3, 3]);
                 det -= arr[1, 0] * (arr[0, 1] * arr[2, 2] * arr[3, 3] + arr[0, 2] * arr[2, 3] * arr[3, 1] + arr[0, 3] * arr[2, 1] * arr[3, 2] - arr[0, 3] * arr[2, 2] * arr[3, 1] - arr[0, 1] * arr[2, 3] * arr[3, 2] - arr[0, 2] * arr[2, 1] * arr[3, 3]);
