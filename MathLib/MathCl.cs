@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace MathLib
 {
@@ -62,28 +62,28 @@ namespace MathLib
         }
         public static double[] ArrFind(double[] arr, bool dir)
         {
-            double finded = arr[0];
-            int findedIndex = 0;
-            for(int i = 0; i < arr.Length; i++)
+            double finded = arr[0]; //количество найденных чисел может быть более одного
+            int findedIndex = 0; //количество найденных индексов может быть более одного
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (dir)
                 {
                     if (finded < arr[i])
                     {
-                        finded = arr[i];
+                        finded = arr[i]; //нужна проверка на повторение макс числа и сохранение индекса в массив
                         findedIndex = i;
                     }
                 }
                 else
                 {
-                    if (finded > arr[i])
+                    if (finded > arr[i]) //недоработка аналогична той, что указана в случае с поиском макс элемента
                     {
                         finded = arr[i];
                         findedIndex = i;
                     }
                 }
             }
-            double[] result = { finded, findedIndex };
+            double[] result = { finded, findedIndex }; // структура должна быть более сложной
             return result;
         }
         public static double ArrDet(double[,] arr)
@@ -91,7 +91,7 @@ namespace MathLib
             double det;
             if (arr.GetLength(0) == 2 && arr.GetLength(1) == 2)
             {
-                det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]);
+                det = (arr[0, 0] * arr[1, 1]) - (arr[0, 1] * arr[1, 0]); // строгая индексация
                 return det;
             }else if (arr.GetLength(0) == 3 && arr.GetLength(1) == 3)
             {
@@ -102,7 +102,7 @@ namespace MathLib
                 det -= arr[0, 0] * arr[1, 2] * arr[2, 1];
                 det-= arr[0, 1] * arr[1, 0] * arr[2, 2];
                 return det;
-            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4)
+            }else if(arr.GetLength(0) == 4 && arr.GetLength(1) == 4) //матрица может состоять более, чем из 4*4 элемента
             {
                 det = arr[0, 0] *(arr[1, 1] * arr[2, 2] * arr[3, 3]+ arr[1, 2] * arr[2, 3] * arr[3, 1]+ arr[1, 3] * arr[2, 1] * arr[3, 2]- arr[1, 3] * arr[2, 2] * arr[3, 1]- arr[1, 1] * arr[2, 3] * arr[3, 2]- arr[1, 2] * arr[2, 1] * arr[3, 3]);
                 det -= arr[1, 0] * (arr[0, 1] * arr[2, 2] * arr[3, 3] + arr[0, 2] * arr[2, 3] * arr[3, 1] + arr[0, 3] * arr[2, 1] * arr[3, 2] - arr[0, 3] * arr[2, 2] * arr[3, 1] - arr[0, 1] * arr[2, 3] * arr[3, 2] - arr[0, 2] * arr[2, 1] * arr[3, 3]);
@@ -117,7 +117,7 @@ namespace MathLib
         }
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
-            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1)) //отсутствует функция else в условии
             {
                 for(int i = 0; i < arr1.GetLength(0); i++)
                 {
@@ -132,7 +132,7 @@ namespace MathLib
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
             double[,] arr = { { 0 },{ 0 } };
-            if (arr1.GetLength(0) == arr2.GetLength(1))
+            if (arr1.GetLength(0) == arr2.GetLength(1)) //отсутствует функция else в условии
             {
                 arr = new double[arr1.GetLength(0), arr2.GetLength(1)];
                 for (int i = 0; i < arr.GetLength(0); i++)
@@ -148,7 +148,7 @@ namespace MathLib
                     }
                 }
             }
-            return arr;
+            return arr; //лучше функцию возвращения занести в условие if
         }
 
     }
