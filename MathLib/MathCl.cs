@@ -10,6 +10,7 @@ namespace MathLib
     {
         public static double Sum(double[] x)
         {
+         
             double sum = 0;
             for (int i = 0; i < x.Length; i++)
             {
