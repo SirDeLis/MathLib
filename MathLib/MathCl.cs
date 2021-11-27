@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MathLib
 {
     public class MathCl
     {
+        // Сумма
         public static double Sum(double[] x)
         {
             double sum = 0;
@@ -17,6 +14,7 @@ namespace MathLib
             }
             return sum;
         }
+        // Умножение
         public static double Mul(double[] x)
         {
             double sum = 1;
@@ -26,6 +24,7 @@ namespace MathLib
             }
             return sum;
         }
+        // Среднее значение
         public static double Average(double[] x)
         {
             double sum = 0;
@@ -36,6 +35,7 @@ namespace MathLib
             sum /= x.Length;
             return sum;
         }
+        // Не понятно, что за метод, но всё равно выводит непонятное число
         public static double GeomAverage(double[] x)
         {
             double sum = 1;
@@ -51,6 +51,7 @@ namespace MathLib
 
     public class Arranges
     {
+        // Сортировка по убыванию
         public static double[] ArrSort(double[] arr, bool dir)
         {
             Array.Sort(arr);
@@ -60,6 +61,8 @@ namespace MathLib
             }
             return arr;
         }
+
+        // Не понятно
         public static double[] ArrFind(double[] arr, bool dir)
         {
             double finded = arr[0];
@@ -86,6 +89,8 @@ namespace MathLib
             double[] result = { finded, findedIndex };
             return result;
         }
+
+        // Не понятно
         public static double ArrDet(double[,] arr)
         {
             double det;
@@ -115,6 +120,8 @@ namespace MathLib
                 return Convert.ToDouble(null);
             }
         }
+
+        // Сложение матриц
         public static double[,] MatrixSum(double[,] arr1, double[,] arr2)
         {
             if (arr1.GetLength(0) == arr2.GetLength(0) && arr1.GetLength(1) == arr2.GetLength(1))
@@ -129,6 +136,8 @@ namespace MathLib
             }
             return (arr1);
         }
+        // Матрица умножения
+        // WARNING ERROR "Матрицы не умножаются"
         public static double[,] MatrixMul(double[,] arr1, double[,] arr2)
         {
             double[,] arr = { { 0 },{ 0 } };

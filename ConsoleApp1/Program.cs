@@ -6,10 +6,14 @@ namespace ConsoleApp2
     {
         static void enter_lesson_1()
         {
+            // Рандом
             Random rand = new Random();
+            // Максимальное значение
             byte[] kol = new byte[classPath.maxValue];
+            // Кол-во тестов
             double[,] nums1 = new double[21, 21];
 
+            // Генерация случайных чисел (6 раз)
             for (byte i = 0; i < classPath.maxValue; i++)
             {
                 kol[i] = (byte)rand.Next(2, 6);
