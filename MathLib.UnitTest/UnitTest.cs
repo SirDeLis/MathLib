@@ -29,7 +29,7 @@ namespace MathLib.UnitTest
         [TestMethod]
         public void SumCorrectArray() => Assert.AreEqual(45.5f, MathCl.Sum(massiveOne));
         [TestMethod]
-        public void SumEmtyArray() => Assert.AreEqual(null, MathCl.Sum(massiveTwo));
+        public void SumEmtyArray() => Assert.AreEqual(0, MathCl.Sum(massiveTwo));
         [TestMethod]
         public void SumCorrectArrayWithSingleElement() => Assert.AreEqual(1f, MathCl.Sum(massiveThree));
         [TestMethod]
@@ -45,13 +45,13 @@ namespace MathLib.UnitTest
     {
 
         [TestMethod]
-        public void MulCorrectArray()                    => Assert.AreEqual(45.5f, MathCl.Mul(massiveOne));
+        public void MulCorrectArray()                    => Assert.AreEqual(383040, MathCl.Mul(massiveOne));
         [TestMethod]
-        public void MulEmtyArray()                       => Assert.AreEqual(null, MathCl.Mul(massiveTwo));
+        public void MulEmtyArray()                       => Assert.AreEqual(1, MathCl.Mul(massiveTwo));
         [TestMethod]
         public void MulCorrectArrayWithSingleElement()   => Assert.AreEqual(1f, MathCl.Mul(massiveThree));
         [TestMethod]
-        public void MulCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, MathCl.Mul(massiveFour));
+        public void MulCorrectArrayWithDouble()          => Assert.AreEqual(-383040, MathCl.Mul(massiveFour));
         [TestMethod]
         public void MulCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1f, MathCl.Mul(massiveFive));
         [TestMethod]
@@ -62,13 +62,13 @@ namespace MathLib.UnitTest
     public class AverageTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void AverageCorrectArray()                   => Assert.AreEqual(45.5f, MathCl.Average(massiveOne));
+        public void AverageCorrectArray()                   => Assert.AreEqual(5.05f, Math.Round(MathCl.Average(massiveOne), 2));
         [TestMethod]
-        public void AverageEmtyArray()                      => Assert.AreEqual(null, MathCl.Average(massiveTwo));
+        public void AverageEmtyArray()                      => Assert.AreEqual("не число", MathCl.Average(massiveTwo).ToString());
         [TestMethod]
         public void AverageCorrectArrayWithSingleElement()  => Assert.AreEqual(1f, MathCl.Average(massiveThree));
         [TestMethod]
-        public void AverageCorrectArrayWithDouble()         => Assert.AreEqual(26.5f, MathCl.Average(massiveFour));
+        public void AverageCorrectArrayWithDouble()         => Assert.AreEqual(2.94f, Math.Round(MathCl.Average(massiveFour), 2));
         [TestMethod]
         public void AverageCorrectArrayWithNegativeNumber() => Assert.AreEqual(-1f, MathCl.Average(massiveFive));
         [TestMethod]
@@ -78,13 +78,13 @@ namespace MathLib.UnitTest
     public class GeomAverageTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void GeomAverageCorrectArray()                   => Assert.AreEqual(4.172f, Math.Round(MathCl.GeomAverage(massiveOne), 3));
+        public void GeomAverageCorrectArray()                   => Assert.AreEqual(4.172, Math.Round(MathCl.GeomAverage(massiveOne), 3));
         [TestMethod]                                            
-        public void GeomAverageEmtyArray()                      => Assert.AreEqual(null, MathCl.GeomAverage(massiveTwo));
+        public void GeomAverageEmtyArray()                      => Assert.AreEqual(1, MathCl.GeomAverage(massiveTwo));
         [TestMethod]                                            
         public void GeomAverageCorrectArrayWithSingleElement()  => Assert.AreEqual(1f, MathCl.GeomAverage(massiveThree));
         [TestMethod]                                            
-        public void GeomAverageCorrectArrayWithDouble()         => Assert.AreEqual(null, MathCl.GeomAverage(massiveFour));
+        public void GeomAverageCorrectArrayWithDouble()         => Assert.AreEqual("не число", MathCl.GeomAverage(massiveFour).ToString());
         [TestMethod]                                            
         public void GeomAverageCorrectArrayWithNegativeNumber() => Assert.AreEqual(-1f, MathCl.GeomAverage(massiveFive));
         [TestMethod]                                            
@@ -94,13 +94,13 @@ namespace MathLib.UnitTest
     public class ArrFindMaxTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void ArrFindMaxCorrectArray()                   => Assert.AreEqual(45.5f, Arranges.ArrFind(massiveOne, true)[0]);
+        public void ArrFindMaxCorrectArray()                   => Assert.AreEqual(9.5f, Arranges.ArrFind(massiveOne, true)[0]);
         [TestMethod]                                           
         public void ArrFindMaxEmtyArray()                      => Assert.AreEqual(null, Arranges.ArrFind(massiveTwo, true)[0]);
         [TestMethod]                                           
         public void ArrFindMaxCorrectArrayWithSingleElement()  => Assert.AreEqual(1f, Arranges.ArrFind(massiveThree, true)[0]);
         [TestMethod]                                           
-        public void ArrFindMaxCorrectArrayWithDouble()         => Assert.AreEqual(26.5f, Arranges.ArrFind(massiveFour, true)[0]);
+        public void ArrFindMaxCorrectArrayWithDouble()         => Assert.AreEqual(8.5f, Arranges.ArrFind(massiveFour, true)[0]);
         [TestMethod]                                           
         public void ArrFindMaxCorrectArrayWithNegativeNumber() => Assert.AreEqual(-1f, Arranges.ArrFind(massiveFive, true)[0]);
         [TestMethod]                                           
@@ -110,13 +110,13 @@ namespace MathLib.UnitTest
     public class ArrFindMinTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void ArrFindMinCorrectArray()                   => Assert.AreEqual(45.5f, Arranges.ArrFind(massiveOne, false)[0]);
+        public void ArrFindMinCorrectArray()                   => Assert.AreEqual(1f, Arranges.ArrFind(massiveOne, false)[0]);
         [TestMethod]
         public void ArrFindMinEmtyArray()                      => Assert.AreEqual(null, Arranges.ArrFind(massiveTwo, false)[0]);
         [TestMethod]                                           
         public void ArrFindMinCorrectArrayWithSingleElement()  => Assert.AreEqual(1f, Arranges.ArrFind(massiveThree, false)[0]);
         [TestMethod]                                           
-        public void ArrFindMinCorrectArrayWithDouble()         => Assert.AreEqual(26.5f, Arranges.ArrFind(massiveFour, false)[0]);
+        public void ArrFindMinCorrectArrayWithDouble()         => Assert.AreEqual(-9.5f, Arranges.ArrFind(massiveFour, false)[0]);
         [TestMethod]                                           
         public void ArrFindMinCorrectArrayWithNegativeNumber() => Assert.AreEqual(-1f, Arranges.ArrFind(massiveFive, false)[0]);
         [TestMethod]                                           
@@ -128,47 +128,47 @@ namespace MathLib.UnitTest
         [TestMethod]
         public void ArrDetCorrect3x3Matrix() => Assert.AreEqual(18f, Arranges.ArrDet(massiveDoubleOne));
         [TestMethod]
-        public void ArrDetCorrect5x5Matrix() => Assert.AreEqual(null, Arranges.ArrDet(massiveDoubleTwo));
+        public void ArrDetCorrect5x5Matrix() => Assert.AreEqual(0, Arranges.ArrDet(massiveDoubleTwo));
         [TestMethod]
-        public void ArrDetCorrect6x6Matrix() => Assert.AreEqual(1, Arranges.ArrDet(massiveDoubleThree));
+        public void ArrDetCorrect6x6Matrix() => Assert.AreEqual(0f, Arranges.ArrDet(massiveDoubleThree));
         [TestMethod]
-        public void ArrDetEmtyMatrix()       => Assert.AreEqual(26.5f, Arranges.ArrDet(massiveDoubleFour));
+        public void ArrDetEmtyMatrix()       => Assert.AreEqual(0f, Arranges.ArrDet(massiveDoubleFour));
         [TestMethod]
         public void ArrDetCorrect2x2Matrix() => Assert.AreEqual(-3, Arranges.ArrDet(massiveDoubleFive));
         [TestMethod]
-        public void ArrDet2x3Matrix()        => Assert.AreEqual(null, Arranges.ArrDet(massiveDoubleSix));
+        public void ArrDet2x3Matrix()        => Assert.AreEqual(0, Arranges.ArrDet(massiveDoubleSix));
     }
 
     [TestClass]
     public class ArrSortGrowingTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void ArrSortGrowingCorrectArray()                    => Assert.AreEqual(45.5f, Arranges.ArrSort(massiveOne, true));
+        public void ArrSortGrowingCorrectArray()                    => Assert.AreEqual(45.5f, Arranges.ArrSort(massiveOne, true)[0]);
         [TestMethod]
-        public void ArrSortGrowingEmtyArray()                       => Assert.AreEqual(null, Arranges.ArrSort(massiveTwo, true));
+        public void ArrSortGrowingEmtyArray()                       => Assert.AreEqual(null, Arranges.ArrSort(massiveTwo, true)[0]);
         [TestMethod]
-        public void ArrSortGrowingCorrectArrayWithSingleElement()   => Assert.AreEqual(1, Arranges.ArrSort(massiveThree, true));
+        public void ArrSortGrowingCorrectArrayWithSingleElement()   => Assert.AreEqual(1, Arranges.ArrSort(massiveThree, true)[0]);
         [TestMethod]
-        public void ArrSortGrowingCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, Arranges.ArrSort(massiveFour, true));
+        public void ArrSortGrowingCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, Arranges.ArrSort(massiveFour, true)[0]);
         [TestMethod]
-        public void ArrSortGrowingCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1, Arranges.ArrSort(massiveFive, true));
+        public void ArrSortGrowingCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1, Arranges.ArrSort(massiveFive, true)[0]);
         [TestMethod]
-        public void ArrSortGrowingArrayWithNull()                   => Assert.AreEqual(0, Arranges.ArrSort(massiveSix, true));
+        public void ArrSortGrowingArrayWithNull()                   => Assert.AreEqual(0, Arranges.ArrSort(massiveSix, true)[0]);
     }
     [TestClass]
     public class ArrSortDescedingTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void ArrSortDescedingCorrectArray()                    => Assert.AreEqual(45.5f, Arranges.ArrSort(massiveOne, false));
+        public void ArrSortDescedingCorrectArray()                    => Assert.AreEqual(45.5f, Arranges.ArrSort(massiveOne, false)[0]);
         [TestMethod]
-        public void ArrSortDescedingEmtyArray()                       => Assert.AreEqual(null, Arranges.ArrSort(massiveTwo, false));
+        public void ArrSortDescedingEmtyArray()                       => Assert.AreEqual(0, Arranges.ArrSort(massiveTwo, false)[0]);
         [TestMethod]
-        public void ArrSortDescedingCorrectArrayWithSingleElement()   => Assert.AreEqual(1, Arranges.ArrSort(massiveThree, false));
+        public void ArrSortDescedingCorrectArrayWithSingleElement()   => Assert.AreEqual(1, Arranges.ArrSort(massiveThree, false)[0]);
         [TestMethod]
-        public void ArrSortDescedingCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, Arranges.ArrSort(massiveFour, false));
+        public void ArrSortDescedingCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, Arranges.ArrSort(massiveFour, false)[0]);
         [TestMethod]
-        public void ArrSortDescedingCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1, Arranges.ArrSort(massiveFive, false));
+        public void ArrSortDescedingCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1, Arranges.ArrSort(massiveFive, false)[0]);
         [TestMethod]
-        public void ArrSortDescedingArrayWithNull()                   => Assert.AreEqual(0, Arranges.ArrSort(massiveSix, false));
+        public void ArrSortDescedingArrayWithNull()                   => Assert.AreEqual(0, Arranges.ArrSort(massiveSix, false)[0]);
     }
 }
