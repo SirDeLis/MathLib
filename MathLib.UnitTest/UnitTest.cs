@@ -62,13 +62,13 @@ namespace MathLib.UnitTest
     public class AverageTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void AverageCorrectArray()                   => Assert.AreEqual(5.05f, Math.Round(MathCl.Average(massiveOne), 2));
+        public void AverageCorrectArray()                   => Assert.AreEqual(Math.Round(5.05f, 2), Math.Round(MathCl.Average(massiveOne), 2));
         [TestMethod]
         public void AverageEmtyArray()                      => Assert.AreEqual("не число", MathCl.Average(massiveTwo).ToString());
         [TestMethod]
         public void AverageCorrectArrayWithSingleElement()  => Assert.AreEqual(1f, MathCl.Average(massiveThree));
         [TestMethod]
-        public void AverageCorrectArrayWithDouble()         => Assert.AreEqual(2.94f, Math.Round(MathCl.Average(massiveFour), 2));
+        public void AverageCorrectArrayWithDouble()         => Assert.AreEqual(Math.Round(2.94f, 2), Math.Round(MathCl.Average(massiveFour), 2));
         [TestMethod]
         public void AverageCorrectArrayWithNegativeNumber() => Assert.AreEqual(-1f, MathCl.Average(massiveFive));
         [TestMethod]
@@ -100,7 +100,7 @@ namespace MathLib.UnitTest
         [TestMethod]                                           
         public void ArrFindMaxCorrectArrayWithSingleElement()  => Assert.AreEqual(1f, Arranges.ArrFind(massiveThree, true)[0]);
         [TestMethod]                                           
-        public void ArrFindMaxCorrectArrayWithDouble()         => Assert.AreEqual(8.5f, Arranges.ArrFind(massiveFour, true)[0]);
+        public void ArrFindMaxCorrectArrayWithDouble()         => Assert.AreEqual(8f, Arranges.ArrFind(massiveFour, true)[0]);
         [TestMethod]                                           
         public void ArrFindMaxCorrectArrayWithNegativeNumber() => Assert.AreEqual(-1f, Arranges.ArrFind(massiveFive, true)[0]);
         [TestMethod]                                           
@@ -143,13 +143,13 @@ namespace MathLib.UnitTest
     public class ArrSortGrowingTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void ArrSortGrowingCorrectArray()                    => Assert.AreEqual(45.5f, Arranges.ArrSort(massiveOne, true)[0]);
+        public void ArrSortGrowingCorrectArray()                    => Assert.AreEqual(1f, Arranges.ArrSort(massiveOne, true)[0]);
         [TestMethod]
         public void ArrSortGrowingEmtyArray()                       => Assert.AreEqual(null, Arranges.ArrSort(massiveTwo, true)[0]);
         [TestMethod]
         public void ArrSortGrowingCorrectArrayWithSingleElement()   => Assert.AreEqual(1, Arranges.ArrSort(massiveThree, true)[0]);
         [TestMethod]
-        public void ArrSortGrowingCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, Arranges.ArrSort(massiveFour, true)[0]);
+        public void ArrSortGrowingCorrectArrayWithDouble()          => Assert.AreEqual(-9.5f, Arranges.ArrSort(massiveFour, true)[0]);
         [TestMethod]
         public void ArrSortGrowingCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1, Arranges.ArrSort(massiveFive, true)[0]);
         [TestMethod]
@@ -159,13 +159,13 @@ namespace MathLib.UnitTest
     public class ArrSortDescedingTestClass : ArrayTestClass
     {
         [TestMethod]
-        public void ArrSortDescedingCorrectArray()                    => Assert.AreEqual(45.5f, Arranges.ArrSort(massiveOne, false)[0]);
+        public void ArrSortDescedingCorrectArray()                    => Assert.AreEqual(9.5f, Arranges.ArrSort(massiveOne, false)[0]);
         [TestMethod]
         public void ArrSortDescedingEmtyArray()                       => Assert.AreEqual(0, Arranges.ArrSort(massiveTwo, false)[0]);
         [TestMethod]
         public void ArrSortDescedingCorrectArrayWithSingleElement()   => Assert.AreEqual(1, Arranges.ArrSort(massiveThree, false)[0]);
         [TestMethod]
-        public void ArrSortDescedingCorrectArrayWithDouble()          => Assert.AreEqual(26.5f, Arranges.ArrSort(massiveFour, false)[0]);
+        public void ArrSortDescedingCorrectArrayWithDouble()          => Assert.AreEqual(8f, Arranges.ArrSort(massiveFour, false)[0]);
         [TestMethod]
         public void ArrSortDescedingCorrectArrayWithNegativeNumber()  => Assert.AreEqual(-1, Arranges.ArrSort(massiveFive, false)[0]);
         [TestMethod]
