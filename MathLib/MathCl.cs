@@ -62,7 +62,7 @@ namespace MathLib
             return arr;
         }
 
-        // Поиск числа
+        // Поиск числа...
         public static double[] ArrFind(double[] arr, bool dir)
         {
             double finded = arr[0];
